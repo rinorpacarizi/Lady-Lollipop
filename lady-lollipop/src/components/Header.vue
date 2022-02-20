@@ -46,19 +46,17 @@
             </div>
  -->
     </div>
-    <div class="out-nav-div">
-      <div class="nav-div">
-        <a class="p-navbar" path="/">Home</a>
-        <a class="p-navbar" path="/">Sweets</a>
-        <a class="p-navbar" path="/">Cakes</a>
-        <a class="p-navbar" path="/">Drinks</a>
-      </div>
-    </div>
+    <NavBar></NavBar>
+    
   </div>
 </template>
 <script>
+import NavBar from './NavBar.vue'
 export default {
   name: "Header",
+  components:{
+    NavBar
+  },
   data() {
     return {};
   },
@@ -136,7 +134,7 @@ export default {
   flex-direction: row;
   position: relative;
   left: 154px;
-  bottom: 20px;
+  bottom: 15px;
 }
 .profile-link {
   text-decoration: none;
@@ -159,39 +157,5 @@ export default {
   position: relative;
   top: 23px;
   right: 20px;
-}
-.nav-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 820px;
-    position: relative;
-    left: 375px;
-    top: 10px;
-}
-.out-nav-div {
-    background-color: #FD4B4B;
-    height:50px;
-}
-.p-navbar {
-    color: white;
-    text-decoration: none;
-    width: 166px;
-    font-size: 35px;
-    font-family: GrandHotel;
-    padding-bottom:5px;
-    position:relative;
-    bottom:7px;
-    text-align:center;
-    height:50px;
- 
-}
-
-.p-navbar:hover {
-    color: #FD4B4B;
-    text-decoration: none;
-    background-color:white;
-    
-
 }
 </style>
