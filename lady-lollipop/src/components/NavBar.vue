@@ -2,10 +2,10 @@
   <div>
     <div class="out-nav-div">
       <div class="nav-div">
-        <router-link class="p-navbar" to="/"> Home </router-link>
-        <router-link class="p-navbar" to="/sweets"> Sweets</router-link
-        ><router-link class="p-navbar" to="/cakes">Cakes</router-link
-        ><router-link class="p-navbar" to="/drinks">Drinks</router-link>
+        <router-link class="p-navbar" :to="{name:'Home'}"> Home </router-link>
+        <router-link class="p-navbar" :to="{name:'Sweets'}"> Sweets</router-link
+        ><router-link class="p-navbar" :to="{name:'Cakes'}">Cakes</router-link
+        ><router-link class="p-navbar" :to="{name:'Drinks'}">Drinks</router-link>
       </div>
     </div>
   </div>
