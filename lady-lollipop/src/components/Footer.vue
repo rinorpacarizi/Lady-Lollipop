@@ -21,6 +21,7 @@ export default {
 .layout-footer {
     background-color: #FD4B4B;
     height: 84px;
+    width: 100vw;
 }
 .footer-p{
     color:white;

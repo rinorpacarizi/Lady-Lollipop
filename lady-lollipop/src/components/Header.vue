@@ -14,10 +14,10 @@
           </button>
         </form>
       </div>
-      <a href="#"><img class="logo" src="../assets/Images/logo.jpg" /></a>
+       <router-link :to="{name:'Home'}"><img class="logo" src="../assets/Images/logo.jpg" /></router-link>
       <div class="header-div">
-        <a class="profile-link profile-login" href="#"><p>Login</p></a>
-        <a class="profile-link" href="#"><p>Register</p></a>
+        <router-link class="profile-link profile-login" :to="{name:'Login'}"><p>Login</p></router-link>
+        <router-link class="profile-link" :to="{name:'Register'}"><p>Register</p></router-link>
       </div>
     </div>
 

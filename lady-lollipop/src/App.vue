@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <div class="Header"><Header/></div>
+    <div class="Header" v-if="!navigation"><Header/></div>
      <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
       <router-view/>
 
-    <div style="height:430px;"></div>
 
-    <div><Footer/></div>
+    <footer class="footer" v-if="!navigation"><Footer/></footer>
     
   </div>
 </template>
@@ -20,6 +19,29 @@ export default {
   components: {
     Header,
     Footer
+  },
+  data(){
+    return{
+      navigation:null
+    }
+  },
+  create(){
+    this.checkRoute();
+  },
+  methods:{
+    checkRoute(){
+      if(this.$route.name==="Login" || this.$route.name==="Register" || this.$route.name==="ForgotPassword"){
+       this.navigation=true;
+       return;
+      }else{
+        this.navigation=false;
+      }
+    }
+  },
+  watch:{
+    $route(){
+      this.checkRoute();
+    }
   }
 }
 </script>
@@ -40,5 +62,9 @@ body {
 .Header{
   position: relative;
   bottom: 60px;
+}
+.footer{
+  position: absolute;
+  bottom: 0px;
 }
 </style>
