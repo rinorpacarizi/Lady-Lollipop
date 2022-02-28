@@ -12,13 +12,14 @@
 
     <form class="form">
       <p class="p-SignUp">Sign Up in Lady Lollipop</p>
-      <label class="labels" >Name</label>
+      <label class="labels">Name</label>
       <input class="inputs" v-model="name" type="text" />
-      <label class="labels" >Email address:</label>
+      <label class="labels">Email address:</label>
       <input class="inputs" v-model="email" type="text" />
       <label class="labels">Password:</label>
-      <input class="inputs" v-model="password" type="text" />
-      <button class="button" type="submit">Sign Up</button>
+      <input class="inputs" v-model="password" type="password" />
+      <div class="error" v-show="error">{{this.errorMsg}}</div>
+      <button class="button" @click.prevent="register" type="submit">Sign Up</button>
       <p class="p-signup">
         Already a memeber?
         <router-link class="a-in-p" :to="{ name: 'Login' }"
@@ -29,14 +30,42 @@
   </div>
 </template>
 <script>
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import db from "../../firebase/firebaseInit";
 export default {
   name: "Register",
   data() {
     return {
-      name:null,
-      email:null,
-      password:null
+      name: "",
+      email: "",
+      password: "",
+      error:null,
+      errorMsg:""
     };
+  },
+  methods: {
+    async register() {
+      if (this.name !== "" && this.email !== "" && this.password !== "") { 
+        this.error=false;
+        this.errorMsg="";
+        const firebaseAuth=await firebase.auth();
+        const createUser=await firebaseAuth.createUserWithEmailAndPassword(this.email,this.password);
+        const results=await createUser;
+        const database=db.collection("users").doc(results.user.uid);
+        await database.set({
+          name:this.name,
+          email:this.email,
+          password:this.password
+      
+        });
+        this.$router.push({name:"Home"})
+        return;
+      }
+      this.error=true;
+      this.errorMsg="Please fill out all the fields"
+      return;
+    },
   },
 };
 </script>
@@ -115,6 +144,9 @@ body {
   font-family: Galdeano;
   border-radius: 6px;
 }
+.button:hover{
+  cursor: pointer;
+}
 .p-signup {
   padding-top: 14px;
   color: red;
@@ -125,5 +157,10 @@ body {
 .a-in-p {
   color: #fd4b4b;
   font-weight: 500;
+}
+.error{
+  text-align: center;
+  font-size: 12px;
+  color: red;
 }
 </style>
