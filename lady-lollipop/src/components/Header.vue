@@ -15,11 +15,29 @@
         </form>
       </div>
        <router-link :to="{name:'Home'}"><img class="logo" src="../assets/Images/logo.jpg" /></router-link>
-      <div class="header-div">
+      <div v-if="!user" class="header-div">
         <router-link class="profile-link profile-login" :to="{name:'Login'}"><p>Login</p></router-link>
         <router-link class="profile-link" :to="{name:'Register'}"><p>Register</p></router-link>
       </div>
     </div>
+    <!-- <el-row>
+      <el-col :span="12">
+    <span class="demonstration">click to trigger</span>
+    <el-dropdown trigger="click">
+      <span class="el-dropdown-link">
+        Dropdown List<i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item icon="el-icon-plus">Action 1</el-dropdown-item>
+        <el-dropdown-item icon="el-icon-circle-plus">Action 2</el-dropdown-item>
+        <el-dropdown-item icon="el-icon-circle-plus-outline">Action 3</el-dropdown-item>
+        <el-dropdown-item icon="el-icon-check">Action 4</el-dropdown-item>
+        <el-dropdown-item icon="el-icon-circle-check">Action 5</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+  </el-col>
+    </el-row> -->
+
 
     <div>
       <!-- <div style="padding-right: 20px; padding-left: 10px;" class="dropdown">
@@ -60,6 +78,11 @@ export default {
   data() {
     return {};
   },
+  computed:{
+    user(){
+      return this.$store.state.users.user;
+    }
+  }
 };
 </script>
 <style scoped>
