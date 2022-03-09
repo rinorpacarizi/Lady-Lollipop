@@ -1,7 +1,7 @@
 <template>
   <div class="layout-footer">
     <div>
-      <p class="footer-p">Copyright© 2021| Lady Lollipop</p>
+      <p class="footer-p">Copyright© 2022| Lady Lollipop</p>
       <div class="div-footer">
         <a class="a-footer" href="#">Privacy Policy</a>
         <a class="a-footer" href="#">Terms of Use</a>

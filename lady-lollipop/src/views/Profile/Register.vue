@@ -12,26 +12,14 @@
 
     <form class="form">
       <p class="p-SignUp">Sign Up in Lady Lollipop</p>
-      <div style="display:flex;flex-direction:row;">
-        <div class="first-name">
-          <label class="labels">First Name</label>
-          <input class="inputss" v-model="firstName" type="text" />
-        </div>
-        <div class="first-name">
-          <label class="labels">Last Name</label>
-          <input class="inputss" v-model="lastName" type="text" />
-        </div>
-      </div>
-      <label class="labels">Userame</label>
-      <input class="inputs" v-model="username" type="text" />
+      <label class="labels">Name</label>
+      <input class="inputs" v-model="name" type="text" />
       <label class="labels">Email address:</label>
       <input class="inputs" v-model="email" type="text" />
       <label class="labels">Password:</label>
       <input class="inputs" v-model="password" type="password" />
-      <div class="error" v-show="error">{{ this.errorMsg }}</div>
-      <button class="button" @click.prevent="register" type="submit">
-        Sign Up
-      </button>
+      <div class="error" v-show="error">{{this.errorMsg}}</div>
+      <button class="button" @click.prevent="register" type="submit">Sign Up</button>
       <p class="p-signup">
         Already a memeber?
         <router-link class="a-in-p" :to="{ name: 'Login' }"
@@ -42,46 +30,40 @@
   </div>
 </template>
 <script>
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 import db from "../../firebase/firebaseInit";
 export default {
   name: "Register",
   data() {
     return {
-      firstName:"",
-      lastName:"",
-      username: "",
+      name: "",
       email: "",
       password: "",
-      error: null,
-      errorMsg: "",
+      error:null,
+      errorMsg:""
     };
   },
   methods: {
     async register() {
-      if (this.username !== "" && this.email !== "" && this.password !== "" && this.firstName !== "" && this.lastName !== "" ) {
-        this.error = false;
-        this.errorMsg = "";
-        const firebaseAuth = await firebase.auth();
-        const createUser = await firebaseAuth.createUserWithEmailAndPassword(
-          this.email,
-          this.password
-        );
-        const results = await createUser;
-        const database = db.collection("users").doc(results.user.uid);
+      if (this.name !== "" && this.email !== "" && this.password !== "") { 
+        this.error=false;
+        this.errorMsg="";
+        const firebaseAuth=await firebase.auth();
+        const createUser=await firebaseAuth.createUserWithEmailAndPassword(this.email,this.password);
+        const results=await createUser;
+        const database=db.collection("users").doc(results.user.uid);
         await database.set({
-          firstName:this.firstName,
-          lastName:this.lastName,
-          username: this.username,
-          email: this.email,
-          password: this.password,
+          name:this.name,
+          email:this.email,
+          password:this.password
+      
         });
-        this.$router.push({ name: "Home" });
+        this.$router.push({name:"Home"})
         return;
       }
-      this.error = true;
-      this.errorMsg = "Please fill out all the fields";
+      this.error=true;
+      this.errorMsg="Please fill out all the fields"
       return;
     },
   },
@@ -107,17 +89,17 @@ body {
 }
 .logo {
   position: absolute;
-  top: 15px;
+  top: 28px;
   height: 133px;
-  left: 45%;
+  left: 48%;
 }
 .form {
   position: absolute;
-  top: 180px;
+  top: 216px;
   background-color: white;
-  height: 535px;
+  height: 481px;
   width: 441px;
-  left: 36%;
+  left: 39%;
   display: flex;
   flex-direction: column;
 }
@@ -137,23 +119,11 @@ body {
 }
 .inputs {
   width: 325px;
-  height: 30px;
+  height: 35px;
   margin-left: 45px;
   border: 1px #fd4b4b8f solid;
 }
 .inputs:focus {
-  border: 1px #fd4b4bd7 solid;
-  color: black;
-  font-weight: 400;
-  outline: #fd4b4b;
-}
-.inputss {
-  width: 150px;
-  height: 30px;
-  margin-left: 45px;
-  border: 1px #fd4b4b8f solid;
-}
-.inputss:focus {
   border: 1px #fd4b4bd7 solid;
   color: black;
   font-weight: 400;
@@ -174,7 +144,7 @@ body {
   font-family: Galdeano;
   border-radius: 6px;
 }
-.button:hover {
+.button:hover{
   cursor: pointer;
 }
 .p-signup {
@@ -188,14 +158,9 @@ body {
   color: #fd4b4b;
   font-weight: 500;
 }
-.error {
+.error{
   text-align: center;
   font-size: 12px;
   color: red;
-}
-.first-name{
-  display: flex;
-  flex-direction: column;
-
 }
 </style>

@@ -14,59 +14,51 @@
           </button>
         </form>
       </div>
-      <router-link :to="{ name: 'Home' }"
-        ><img class="logo" src="../assets/Images/logo.jpg"
-      /></router-link>
-      <div v-if="!user" class="header-div">
-        <router-link class="profile-link profile-login" :to="{ name: 'Login' }"
-          ><p>Login</p></router-link
-        >
-        <router-link class="profile-link" :to="{ name: 'Register' }"
-          ><p>Register</p></router-link
-        >
-      </div>
-      <div v-else>
-        <div style="padding-right: 20px; padding-left: 10px">
-          <el-row class="block-col-2">
-            <el-col :span="12">
-              <p class="p-fullName"></p>
-              <el-dropdown trigger="click">
-                <span class="el-dropdown-link">
-                  <img src="../assets/Images/profile_icon.jpg"/></span>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item class="el-icon-share"
-                    >Profile</el-dropdown-item
-                  >
-                  <el-dropdown-item icon="el-icon-circle-plus"
-                    >Admin</el-dropdown-item
-                  >
-                  <el-dropdown-item icon="el-icon-circle-plus-outline"
-                    >Sign Out</el-dropdown-item
-                  >
-                </el-dropdown-menu>
-              </el-dropdown>
-            </el-col>
-          </el-row>
-        </div>
+       <router-link :to="{name:'Home'}"><img class="logo" src="../assets/Images/logo.jpg" /></router-link>
+      <div class="header-div">
+        <router-link class="profile-link profile-login" :to="{name:'Login'}"><p>Login</p></router-link>
+        <router-link class="profile-link" :to="{name:'Register'}"><p>Register</p></router-link>
       </div>
     </div>
+
+    <div>
+      <!-- <div style="padding-right: 20px; padding-left: 10px;" class="dropdown">
+                <button class="btn dropdown-toggle " style="display:flex;" type="button" id="profile-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <p class="p-fullName"> </p>
+                    <img src="../assets/Images/profile_icon.jpg" />
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                    <li>
+                        <a class="dropdown-item" > Orders</a>
+                    </li>
+                  
+                        <li>
+                            <a class="dropdown-item" > Users</a>
+                        </li>
+                    
+
+                    <li>
+                        <form asp-controller="Account" asp-action="Logout">
+                            <button class="dropdown-item">Log Out</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+ -->
+    </div>
     <NavBar></NavBar>
+    
   </div>
 </template>
 <script>
-import NavBar from "./NavBar.vue";
+import NavBar from './NavBar.vue'
 export default {
   name: "Header",
-  components: {
-    NavBar,
+  components:{
+    NavBar
   },
   data() {
     return {};
-  },
-  computed: {
-    user() {
-      return this.$store.state.users.user;
-    },
   },
 };
 </script>
@@ -80,11 +72,11 @@ export default {
   src: url(../assets/Fonts/Galdeano-Regular.ttf);
 }
 
-.search-button {
-  display: contents;
+.search-button{
+    display: contents;
 }
-.search-button:hover {
-  cursor: pointer;
+.search-button:hover{
+    cursor: pointer;
 }
 .search-bar {
   border: 2px white solid;
@@ -102,7 +94,7 @@ export default {
   width: 37px;
   height: 34px;
   position: relative;
-  top: 41px;
+  top: 30px;
   right: 168px;
 }
 ::placeholder {
@@ -165,18 +157,5 @@ export default {
   position: relative;
   top: 23px;
   right: 20px;
-}
-.el-dropdown-link {
-  cursor: pointer;
-  color: #409eff;
-}
-.el-icon-arrow-down {
-  font-size: 12px;
-}
-.demonstration {
-  display: block;
-  color: #8492a6;
-  font-size: 14px;
-  margin-bottom: 20px;
 }
 </style>

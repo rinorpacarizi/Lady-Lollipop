@@ -1,0 +1,350 @@
+.row-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 65px 0px 100px;
+}
+
+.create-button {
+    color: white;
+    background-color: #FD4B4B;
+    position: fixed;
+    border: none;
+    border-radius: 30px;
+    left: 94%;
+    top: 50%;
+    width: 78px;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+}
+
+    .create-button:hover {
+        color: white;
+        text-decoration: none;
+        box-shadow: 0px 2px 10px #cc66669e;
+    }
+
+.main-inside-div {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 15%;
+    align-items: center;
+    height: 515px;
+    max-width: 300px;
+    border-radius: 12px;
+    padding: 22px 20px 0px 20px;
+    background-color: #ffffff;
+    margin-right: 27px;
+    margin-bottom: 25px;
+    box-shadow: 0px 2px 10px #cc66669e;
+    border: 2px solid #fd4b4b5e;
+}
+
+.img-drink {
+    width: 235px;
+    height: 265px;
+    border-radius: 8px;
+}
+
+.name-p {
+    padding-top: 5px;
+    font-family: Galdeano;
+    font-size: 25px;
+    margin-bottom: 0px;
+    color: black;
+    width: 235px;
+    text-align: center;
+    height: 75px;
+}
+
+    .name-p:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.price-p {
+    font-family: monospace;
+    font-size: 25px;
+    text-align: center;
+    color: #FD4B4B;
+    padding-top: 5px;
+}
+
+.stock-p {
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+}
+
+.title {
+    /* position: relative; */
+    left: 115px;
+    font-size: 57px;
+    font-family: GrandHotel;
+    color: #FD4B4B;
+    padding-top: 10px;
+    width: 300px;
+}
+
+.cart-button {
+    background-color: #FD4B4B;
+    color: #FFFFFF;
+    border-radius: 20px;
+    width: 125px;
+    height: 40px;
+    border: none;
+}
+
+    .cart-button:disabled {
+        background-color: grey;
+    }
+
+.h1-create-edit {
+    color: #FD4B4B;
+    text-align: center;
+    font-family: GrandHotel;
+    padding-top: 15px;
+    font-size: 55px;
+    position: relative;
+}
+
+.div-create-edit {
+    position: relative;
+    left: 9px;
+    color: #FD4B4B;
+    font-weight: 500;
+    font-family: Galdeano;
+    font-size: 20px;
+}
+
+.input-create-edit {
+    border: 1px solid #FD4B4B;
+}
+
+    .input-create-edit:focus {
+        border: 1px solid #FD4B4B;
+        box-shadow: 1px 2px 6px #cc66669e;
+    }
+
+.form-create-edit {
+    position: relative;
+    left: 500px;
+    width: 500px;
+}
+
+.cancel-create-edit {
+    color: white;
+    background: red;
+    border: none;
+    width: 95px;
+    height: 36px;
+    border-radius: 6px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+    .cancel-create-edit:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+.submit-create-edit {
+    width: 95px;
+    height: 36px;
+    border-radius: 6px;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+}
+
+.img-create-edit {
+    width: 260px;
+    position: absolute;
+    left: 565px;
+    top: 40px;
+    border-radius: 10px;
+}
+
+.img-details {
+    width: 530px;
+    position: absolute;
+    right: 630px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.main-div-details {
+    position: relative;
+    width: 530px;
+    left: 800px;
+    top: 40px;
+}
+
+.cart-button-details {
+    background-color: lightseagreen;
+    color: #FFFFFF;
+    border-radius: 20px;
+    width: 125px;
+    height: 40px;
+    border: none;
+    position: relative;
+    right: 10px;
+    top: 45px;
+    padding-top: 7px;
+}
+
+    .cart-button-details:focus {
+        outline: none;
+    }
+
+.a-details {
+    color: white;
+    font-size: 17px;
+}
+
+    .a-details:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+.cancel-details {
+    color: white;
+    background: #FD4B4B;
+    border: none;
+    width: 125px;
+    text-align: center;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 7px;
+    position: relative;
+    bottom: 115px;
+    left: 377px;
+    padding-top: 7px;
+}
+
+.name-details {
+    font-size: 37px;
+    font-weight: 700;
+    font-family: Galdeano;
+}
+
+.price-details {
+    color: #FD4B4B;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 18px;
+    padding-left: 12px;
+}
+
+.description-details {
+    font-size: 21px;
+    font-family: inherit;
+}
+
+.stock-details {
+    color: fuchsia;
+    font-size: 14px;
+    font-family: cursive;
+    position: relative;
+    top: 35px;
+}
+
+.img-delete {
+    width: 300px;
+    position: relative;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.name-delete {
+    font-size: 40px;
+    font-family: Galdeano;
+    text-align: center;
+}
+
+.submit-delete {
+    width: 95px;
+    height: 36px;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.cancel-delete {
+    color: white;
+    background-color: lightseagreen;
+    border: none;
+    width: 95px;
+    height: 36px;
+    border-radius: 6px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+    .cancel-delete:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+.delete-form-div {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 495px;
+    width: 500px;
+    padding-top: 15px;
+}
+
+.p-delete {
+    font-family: Galdeano;
+    font-size: 25px;
+    text-align: center;
+}
+
+.cart-button-enabled {
+    background-color: #FD4B4B;
+    color: #FFFFFF;
+    border-radius: 20px;
+    width: 125px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    padding-top: 8px;
+}
+
+    .cart-button-enabled:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+.a-cart-details-drinks {
+    text-align: center;
+}
+
+.a-cart-details-drinks:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.index-button-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 120px;
+    bottom: 110px;
+}
+
+.edit-delete-drinks{
+    background-color: #FD4B4B;
+    border-radius: 19px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 3px;
+    margin-bottom: 8px;
+}
+
+.edit-pencil {
+    text-align: center;
+}
