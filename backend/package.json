@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "this is server",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rinorpacarizi/Lady-Lollipop.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Nisa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rinorpacarizi/Lady-Lollipop/issues"
+  },
+  "homepage": "https://github.com/rinorpacarizi/Lady-Lollipop#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.2.5",
+    "nodemon": "^2.0.15"
+  }
+}
