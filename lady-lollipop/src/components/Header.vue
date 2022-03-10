@@ -21,6 +21,7 @@
       </div>
     </div>
 
+
     <div>
       <!-- <div style="padding-right: 20px; padding-left: 10px;" class="dropdown">
                 <button class="btn dropdown-toggle " style="display:flex;" type="button" id="profile-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +95,7 @@ export default {
   width: 37px;
   height: 34px;
   position: relative;
-  top: 41px;
+  top: 30px;
   right: 168px;
 }
 ::placeholder {

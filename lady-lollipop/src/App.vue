@@ -1,24 +1,30 @@
-<template>
+<template> 
+      <div class="container-fluid" style="height: 650px;padding: 0;  margin: 0; display: table; background-color: #f9d4e478; ">
+
   <div id="app">
+    
     <div class="Header" v-if="!navigation"><Header/></div>
+     
      <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
       <router-view/>
-
-
     <footer class="footer" v-if="!navigation"><Footer/></footer>
-    
-  </div>
+ 
+  </div></div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+
 export default {
   name: 'App',
   components: {
     Header,
-    Footer
+    Footer,
+        
+
+
   },
   data(){
     return{
@@ -63,8 +69,8 @@ body {
   position: relative;
   bottom: 60px;
 }
-.footer{
+/* .footer{
   position: absolute;
   bottom: 0px;
-}
+} */
 </style>
