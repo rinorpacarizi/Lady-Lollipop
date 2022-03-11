@@ -14,8 +14,6 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
 export default {
   name: 'App',
   components: {
@@ -28,19 +26,11 @@ export default {
     }
   },
   created(){
-    firebase.auth().onAuthStateChanged((user)=>{
-      this.$store.commit("updateUser",user);
-      console.log("here");
-      if(user){
-        this.$store.dispatch("getCurrentUser");
-        console.log(user.email);
-      }
-    })
     this.checkRoute();
   },
   methods:{
     checkRoute(){
-      if(this.$route.name==="Login" || this.$route.name==="Register" || this.$route.name==="ForgotPassword"){
+      if(this.$route.name==="Login" || this.$route.name==="Register" || this.$route.name==="Home"){
        this.navigation=true;
        return;
       }else{

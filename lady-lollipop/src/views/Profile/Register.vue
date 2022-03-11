@@ -12,7 +12,7 @@
 
     <form class="form">
       <p class="p-SignUp">Sign Up in Lady Lollipop</p>
-      <div style="display:flex;flex-direction:row;">
+      <div style="display: flex; flex-direction: row">
         <div class="first-name">
           <label class="labels">First Name</label>
           <input class="inputss" v-model="firstName" type="text" />
@@ -42,15 +42,13 @@
   </div>
 </template>
 <script>
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import db from "../../firebase/firebaseInit";
+import apiRequests from "../../utility/apiRequests";
 export default {
   name: "Register",
   data() {
     return {
-      firstName:"",
-      lastName:"",
+      firstName: "",
+      lastName: "",
       username: "",
       email: "",
       password: "",
@@ -60,28 +58,13 @@ export default {
   },
   methods: {
     async register() {
-      if (this.username !== "" && this.email !== "" && this.password !== "" && this.firstName !== "" && this.lastName !== "" ) {
-        this.error = false;
-        this.errorMsg = "";
-        const firebaseAuth = await firebase.auth();
-        const createUser = await firebaseAuth.createUserWithEmailAndPassword(
-          this.email,
-          this.password
-        );
-        const results = await createUser;
-        const database = db.collection("users").doc(results.user.uid);
-        await database.set({
-          firstName:this.firstName,
-          lastName:this.lastName,
-          username: this.username,
-          email: this.email,
-          password: this.password,
-        });
-        this.$router.push({ name: "Home" });
-        return;
+      try {
+        await apiRequests.registerUser(this.firstName,this.lastName,this.username,this.email,this.password);
+        this.$router.replace({ name: "Login" });
+      } catch (err) {
+        this.error = true;
+        this.errorMsg = "Please fill out all the fields" + err;
       }
-      this.error = true;
-      this.errorMsg = "Please fill out all the fields";
       return;
     },
   },
@@ -193,9 +176,8 @@ body {
   font-size: 12px;
   color: red;
 }
-.first-name{
+.first-name {
   display: flex;
   flex-direction: column;
-
 }
 </style>

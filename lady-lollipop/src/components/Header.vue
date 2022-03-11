@@ -25,27 +25,43 @@
           ><p>Register</p></router-link
         >
       </div>
-      <div v-else>
+      <div v-else class="header-div-else">
         <div style="padding-right: 20px; padding-left: 10px">
           <el-row class="block-col-2">
-            <el-col :span="12">
-              <p class="p-fullName"></p>
+            <el-col :span="12" style="display: flex; flex-direction: row">
+              <el-button
+                @click="dialogProfileVisible = true"
+                class="p-fullName"
+                >{{ name }}</el-button
+              >
+              <el-dialog
+                width="42%"
+                top="5vh"
+                style="height: 45rem"
+                :visible.sync="dialogProfileVisible"
+                ><ProfilePage></ProfilePage>
+              </el-dialog>
               <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
-                  <img src="../assets/Images/profile_icon.jpg"/></span>
+                  <img src="../assets/Images/profile_icon.jpg"
+                /></span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item class="el-icon-share"
-                    >Profile</el-dropdown-item
-                  >
                   <el-dropdown-item icon="el-icon-circle-plus"
-                    >Admin</el-dropdown-item
+                    ><router-link :to="{ name: 'Login' }"
+                      >Admin</router-link
+                    ></el-dropdown-item
                   >
                   <el-dropdown-item icon="el-icon-circle-plus-outline"
-                    >Sign Out</el-dropdown-item
+                    ><router-link :to="{ name: 'Login' }"
+                      >Sign Out</router-link
+                    ></el-dropdown-item
                   >
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
+            <router-link class="cart" :to="{ name: 'Login' }"
+              ><img src="../assets/Images/cart.jpg" alt=""
+            /></router-link>
           </el-row>
         </div>
       </div>
@@ -55,18 +71,39 @@
 </template>
 <script>
 import NavBar from "./NavBar.vue";
+import ProfilePage from "../views/Profile/ProfilePage.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "Header",
   components: {
     NavBar,
+    ProfilePage,
   },
   data() {
-    return {};
+    return {
+      dialogProfileVisible: false,
+      name: "",
+    };
   },
   computed: {
-    user() {
-      return this.$store.state.users.user;
+    // user() {
+    //   return this.$store.state.users.user;
+    // },
+    ...mapGetters({
+      user: "user",
+    }),
+  },
+  methods: {
+    checkUser() {
+      if (this.user.data) {
+        let arr = [2];
+        arr = this.user.data.email.split("@");
+        this.name = arr[0];
+      }
     },
+  },
+  mounted() {
+    this.checkUser();
   },
 };
 </script>
@@ -108,6 +145,13 @@ export default {
 ::placeholder {
   color: white;
   font-size: 16px;
+  position: relative;
+  top: 2px;
+}
+.header-div-else {
+  position: relative;
+  top: 40px;
+  left: 105px;
 }
 .profile-login {
   padding-right: 10px;
@@ -173,10 +217,27 @@ export default {
 .el-icon-arrow-down {
   font-size: 12px;
 }
-.demonstration {
-  display: block;
-  color: #8492a6;
-  font-size: 14px;
-  margin-bottom: 20px;
+.p-fullName {
+  padding-right: 5px;
+  font-size: 22px;
+  color: #fd4b4b;
+  margin-top: -3px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-style: Galdeano;
+  text-decoration: none;
+}
+.el-button:focus,
+.el-button:hover {
+  color: #fd4b4b !important;
+  background-color: white !important;
+  border: none !important;
+}
+
+.cart {
+  position: relative;
+  bottom: 15px;
+  left: 20px;
 }
 </style>

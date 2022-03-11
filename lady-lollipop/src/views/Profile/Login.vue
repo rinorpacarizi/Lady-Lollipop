@@ -15,7 +15,7 @@
       <label class="labels">Email address:</label>
       <input class="inputs" type="text" v-model="email" />
       <label class="labels">Password:</label>
-      <input class="inputs" type="password" v-model="password"/>
+      <input class="inputs" type="password" v-model="password" />
       <button class="button" @click.prevent="signIn" type="submit">
         Sign In
       </button>
@@ -30,8 +30,7 @@
   </div>
 </template>
 <script>
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
+import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 export default {
   name: "Login",
   data() {
@@ -43,21 +42,10 @@ export default {
     };
   },
   methods: {
-    signIn() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.$router.push({ name: "Home" });
-          this.error = false;
-          this.errorMsg = "";
-          console.log(firebase.auth().currentUser.uid);
-        })
-        .catch(() => {
-          this.error = true;
-          this.errorMsg = "Please fill the fields correctly!";
-          console.log("fail",this.password,this.email);
-        });
+    async signIn() {
+      await signInWithEmailAndPassword(getAuth(), this.email, this.password);
+      this.$router.replace({ name: "Sweets" });
+
     },
   },
 };
@@ -155,7 +143,7 @@ body {
   left: 43px;
   text-decoration: underline;
   font-weight: bold;
-    font-style: italic;
-    font-family: Galdeano;
+  font-style: italic;
+  font-family: Galdeano;
 }
 </style>
