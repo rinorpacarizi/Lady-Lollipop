@@ -21,6 +21,6 @@ let drinkSchema = new Schema({
   },
 
 }, {
-  collection: 'drinks'
+  collection: 'drink'
 })
 module.exports = mongoose.model('Drink', drinkSchema)

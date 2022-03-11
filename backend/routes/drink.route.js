@@ -11,7 +11,7 @@ drinkRoute.route('/create-drink').post((req, res, next) => {
   }
 })
 });
-drinkRoute.route('/').get((req, res, next) => {
+drinkRoute.route('/list-drink').get((req, res, next) => {
     DrinkModel.find((error, data) => {
      if (error) {
        return next(error)
@@ -19,7 +19,7 @@ drinkRoute.route('/').get((req, res, next) => {
        res.json(data)
      }
    })
- })
+ });
  drinkRoute.route('/edit-drink/:id').get((req, res, next) => {
     DrinkModel.findById(req.params.id, (error, data) => {
     if (error) {
@@ -28,7 +28,7 @@ drinkRoute.route('/').get((req, res, next) => {
       res.json(data)
     }
   })
-})
+});
 // Update
 drinkRoute.route('/update-drink/:id').put((req, res, next) => {
     DrinkModel.findByIdAndUpdate(req.params.id, {
