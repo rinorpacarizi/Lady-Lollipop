@@ -71,8 +71,9 @@ body {
 .logo {
   position: absolute;
   top: 28px;
-    height: 133px;
-    left: 48%;
+  height: 133px;
+  left: 43%;
+  width: 155px;
 }
 .form {
   position: absolute;
@@ -126,7 +127,7 @@ body {
     border-radius: 6px;
 }
 .p-signin{
-    padding-top: 30px;
+    padding-top: 60px;
     color: red;
     font-family: GrandHotel;
     font-size: 23px;

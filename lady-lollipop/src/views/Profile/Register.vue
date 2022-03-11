@@ -28,8 +28,10 @@
       <input class="inputs" v-model="email" type="text" />
       <label class="labels">Password:</label>
       <input class="inputs" v-model="password" type="password" />
-      <div class="error" v-show="error">{{this.errorMsg}}</div>
-      <button class="button" @click.prevent="register" type="submit">Sign Up</button>
+      <div class="error" v-show="error">{{ this.errorMsg }}</div>
+      <button class="button" @click.prevent="register" type="submit">
+        Sign Up
+      </button>
       <p class="p-signup">
         Already a memeber?
         <router-link class="a-in-p" :to="{ name: 'Login' }"
@@ -50,14 +52,20 @@ export default {
       username: "",
       email: "",
       password: "",
-      error:null,
-      errorMsg:""
+      error: null,
+      errorMsg: "",
     };
   },
   methods: {
     async register() {
       try {
-        await apiRequests.registerUser(this.firstName,this.lastName,this.username,this.email,this.password);
+        await apiRequests.registerUser(
+          this.firstName,
+          this.lastName,
+          this.username,
+          this.email,
+          this.password
+        );
         this.$router.replace({ name: "Login" });
       } catch (err) {
         this.error = true;
@@ -88,15 +96,16 @@ body {
 }
 .logo {
   position: absolute;
-  top: 28px;
+  top: 10px;
   height: 133px;
-  left: 48%;
+  left: 43%;
+  width: 155px;
 }
 .form {
   position: absolute;
-  top: 216px;
+  top: 172px;
   background-color: white;
-  height: 481px;
+  height: 537px;
   width: 441px;
   left: 39%;
   display: flex;
@@ -128,7 +137,18 @@ body {
   font-weight: 400;
   outline: #fd4b4b;
 }
-
+.inputss {
+  width: 145px;
+  height: 35px;
+  margin-left: 43px;
+  border: 1px #fd4b4b8f solid;
+}
+.inputss:focus {
+  border: 1px #fd4b4bd7 solid;
+  color: black;
+  font-weight: 400;
+  outline: #fd4b4b;
+}
 .button {
   height: 40px;
   width: 135px;
@@ -143,11 +163,11 @@ body {
   font-family: Galdeano;
   border-radius: 6px;
 }
-.button:hover{
+.button:hover {
   cursor: pointer;
 }
 .p-signup {
-  padding-top: 14px;
+  padding-top: 30px;
   color: red;
   font-family: GrandHotel;
   font-size: 25px;
@@ -157,7 +177,7 @@ body {
   color: #fd4b4b;
   font-weight: 500;
 }
-.error{
+.error {
   text-align: center;
   font-size: 12px;
   color: red;

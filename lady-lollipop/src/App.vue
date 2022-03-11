@@ -68,8 +68,8 @@ body {
   position: relative;
   bottom: 60px;
 }
-/* .footer{
-  position: absolute;
-  bottom: 0px;
-} */
+.footer{
+  
+
+}
 </style>

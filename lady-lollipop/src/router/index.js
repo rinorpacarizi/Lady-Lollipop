@@ -6,7 +6,6 @@ import DrinkPage from '../views/Drinks/DrinkPage';
 import SweetPage from '../views/Sweets/SweetPage';
 import Login from '../views/Profile/Login';
 import Register from '../views/Profile/Register';
-import ProfilePage from '../views/Profile/ProfilePage'
 
 
 
@@ -60,14 +59,6 @@ const routes = [
       component: Register,
       meta:{
         title:"Register"
-      }
-    },
-    {
-      path: '/profile',
-      name:"Profile",
-      component: ProfilePage,
-      meta:{
-        title:"Profile"
       }
     },
    

@@ -29,18 +29,8 @@
         <div style="padding-right: 20px; padding-left: 10px">
           <el-row class="block-col-2">
             <el-col :span="12" style="display: flex; flex-direction: row">
-              <el-button
-                @click="dialogProfileVisible = true"
-                class="p-fullName"
-                >{{ name }}</el-button
-              >
-              <el-dialog
-                width="42%"
-                top="5vh"
-                style="height: 45rem"
-                :visible.sync="dialogProfileVisible"
-                ><ProfilePage></ProfilePage>
-              </el-dialog>
+              <p class="p-fullName">{{ name }}</p>
+
               <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
                   <img src="../assets/Images/profile_icon.jpg"
@@ -66,50 +56,19 @@
         </div>
       </div>
     </div>
-
-
-    <div>
-      <!-- <div style="padding-right: 20px; padding-left: 10px;" class="dropdown">
-                <button class="btn dropdown-toggle " style="display:flex;" type="button" id="profile-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <p class="p-fullName"> </p>
-                    <img src="../assets/Images/profile_icon.jpg" />
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="profile-btn">
-                    <li>
-                        <a class="dropdown-item" > Orders</a>
-                    </li>
-                  
-                        <li>
-                            <a class="dropdown-item" > Users</a>
-                        </li>
-                    
-
-                    <li>
-                        <form asp-controller="Account" asp-action="Logout">
-                            <button class="dropdown-item">Log Out</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
- -->
-    </div>
     <NavBar></NavBar>
-    
   </div>
 </template>
 <script>
 import NavBar from "./NavBar.vue";
-import ProfilePage from "../views/Profile/ProfilePage.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "Header",
   components: {
     NavBar,
-    ProfilePage,
   },
   data() {
     return {
-      dialogProfileVisible: false,
       name: "",
     };
   },
@@ -145,11 +104,11 @@ export default {
   src: url(../assets/Fonts/Galdeano-Regular.ttf);
 }
 
-.search-button{
-    display: contents;
+.search-button {
+  display: contents;
 }
-.search-button:hover{
-    cursor: pointer;
+.search-button:hover {
+  cursor: pointer;
 }
 .search-bar {
   border: 2px white solid;
@@ -249,7 +208,7 @@ export default {
   padding-right: 5px;
   font-size: 22px;
   color: #fd4b4b;
-  margin-top: -3px;
+  margin-top: 3px;
   outline: none;
   border: none;
   font-weight: 500;

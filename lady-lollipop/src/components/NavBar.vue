@@ -40,7 +40,7 @@ export default {
   font-family: GrandHotel;
   padding-bottom: 5px;
   position: relative;
-  top: 3px;
+  bottom: 7px;
   text-align: center;
   height: 50px;
 }

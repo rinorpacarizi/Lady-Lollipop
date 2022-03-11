@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-footer">
+  <footer class="layout-footer">
     <div>
       <p class="footer-p">Copyright© 2022| Lady Lollipop</p>
       <div class="div-footer">
@@ -9,7 +9,7 @@
         <a class="a-footer" href="#">Contact us</a>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 <script>
 export default {
@@ -22,6 +22,9 @@ export default {
     background-color: #FD4B4B;
     height: 84px;
     width: 100vw;
+    position:absolute;
+   bottom:0;
+   width:100%;
 }
 .footer-p{
     color:white;
