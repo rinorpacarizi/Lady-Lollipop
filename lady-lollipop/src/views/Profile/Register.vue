@@ -28,10 +28,8 @@
       <input class="inputs" v-model="email" type="text" />
       <label class="labels">Password:</label>
       <input class="inputs" v-model="password" type="password" />
-      <div class="error" v-show="error">{{ this.errorMsg }}</div>
-      <button class="button" @click.prevent="register" type="submit">
-        Sign Up
-      </button>
+      <div class="error" v-show="error">{{this.errorMsg}}</div>
+      <button class="button" @click.prevent="register" type="submit">Sign Up</button>
       <p class="p-signup">
         Already a memeber?
         <router-link class="a-in-p" :to="{ name: 'Login' }"
@@ -52,8 +50,8 @@ export default {
       username: "",
       email: "",
       password: "",
-      error: null,
-      errorMsg: "",
+      error:null,
+      errorMsg:""
     };
   },
   methods: {
@@ -90,17 +88,17 @@ body {
 }
 .logo {
   position: absolute;
-  top: 15px;
+  top: 28px;
   height: 133px;
-  left: 45%;
+  left: 48%;
 }
 .form {
   position: absolute;
-  top: 180px;
+  top: 216px;
   background-color: white;
-  height: 535px;
+  height: 481px;
   width: 441px;
-  left: 36%;
+  left: 39%;
   display: flex;
   flex-direction: column;
 }
@@ -120,23 +118,11 @@ body {
 }
 .inputs {
   width: 325px;
-  height: 30px;
+  height: 35px;
   margin-left: 45px;
   border: 1px #fd4b4b8f solid;
 }
 .inputs:focus {
-  border: 1px #fd4b4bd7 solid;
-  color: black;
-  font-weight: 400;
-  outline: #fd4b4b;
-}
-.inputss {
-  width: 150px;
-  height: 30px;
-  margin-left: 45px;
-  border: 1px #fd4b4b8f solid;
-}
-.inputss:focus {
   border: 1px #fd4b4bd7 solid;
   color: black;
   font-weight: 400;
@@ -157,7 +143,7 @@ body {
   font-family: Galdeano;
   border-radius: 6px;
 }
-.button:hover {
+.button:hover{
   cursor: pointer;
 }
 .p-signup {
@@ -171,7 +157,7 @@ body {
   color: #fd4b4b;
   font-weight: 500;
 }
-.error {
+.error{
   text-align: center;
   font-size: 12px;
   color: red;

@@ -71,24 +71,25 @@ body {
 .logo {
   position: absolute;
   top: 28px;
-  height: 133px;
-  left: 45%;
+    height: 133px;
+    left: 48%;
 }
 .form {
   position: absolute;
-  top: 232px;
-  background-color: white;
-  height: 440px;
-  width: 441px;
-  left: 36%;
-  display: flex;
-  flex-direction: column;
+    top: 232px;
+    background-color: white;
+    height: 420px;
+    width: 441px;
+    left: 39%;
+    display: flex;
+    flex-direction: column;
 }
 .p-SignIn {
   color: #fd4b4b;
   font-family: GrandHotel;
   font-size: 33px;
   padding-left: 18px;
+
 }
 .labels {
   color: #fd4b4b;
@@ -101,36 +102,37 @@ body {
   width: 325px;
   height: 32px;
   margin-left: 45px;
-  border: 1px #fd4b4b8f solid;
+  border:1px #fd4b4b8f solid;
 }
-.inputs:focus {
-  border: 1px #fd4b4bd7 solid;
-  color: black;
-  font-weight: 400;
-  outline: #fd4b4b;
+.inputs:focus{
+    border:1px #fd4b4bd7 solid;
+    color:black;
+    font-weight: 400;
+    outline: #fd4b4b;
 }
 
-.button {
-  height: 40px;
-  width: 135px;
-  position: relative;
-  left: 34%;
-  top: 47px;
-  color: white;
-  background-color: #fd4b4b;
-  outline: none;
-  border: 1px #fd4b4b solid;
-  font-size: 22px;
-  font-family: Galdeano;
-  border-radius: 6px;
+.button{
+    height: 40px;
+    width: 135px;
+    position: relative;
+    left: 34%;
+    top: 35px;
+    color: white;
+    background-color: #fd4b4b;
+    outline: none;
+    border: 1px #fd4b4b solid;
+    font-size: 22px;
+    font-family: Galdeano;
+    border-radius: 6px;
 }
-.p-signin {
-  padding-top: 40px;
-  color: red;
-  font-family: GrandHotel;
-  font-size: 23px;
+.p-signin{
+    padding-top: 30px;
+    color: red;
+    font-family: GrandHotel;
+    font-size: 23px;
+
 }
-.a-in-p {
+.a-in-p{
   color: #fd4b4b;
   font-weight: 500;
 }

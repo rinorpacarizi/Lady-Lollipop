@@ -66,7 +66,35 @@
         </div>
       </div>
     </div>
+
+
+    <div>
+      <!-- <div style="padding-right: 20px; padding-left: 10px;" class="dropdown">
+                <button class="btn dropdown-toggle " style="display:flex;" type="button" id="profile-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <p class="p-fullName"> </p>
+                    <img src="../assets/Images/profile_icon.jpg" />
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                    <li>
+                        <a class="dropdown-item" > Orders</a>
+                    </li>
+                  
+                        <li>
+                            <a class="dropdown-item" > Users</a>
+                        </li>
+                    
+
+                    <li>
+                        <form asp-controller="Account" asp-action="Logout">
+                            <button class="dropdown-item">Log Out</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+ -->
+    </div>
     <NavBar></NavBar>
+    
   </div>
 </template>
 <script>
@@ -117,11 +145,11 @@ export default {
   src: url(../assets/Fonts/Galdeano-Regular.ttf);
 }
 
-.search-button {
-  display: contents;
+.search-button{
+    display: contents;
 }
-.search-button:hover {
-  cursor: pointer;
+.search-button:hover{
+    cursor: pointer;
 }
 .search-bar {
   border: 2px white solid;
@@ -139,7 +167,7 @@ export default {
   width: 37px;
   height: 34px;
   position: relative;
-  top: 41px;
+  top: 30px;
   right: 168px;
 }
 ::placeholder {
