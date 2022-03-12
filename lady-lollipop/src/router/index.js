@@ -6,6 +6,7 @@ import DrinkPage from '../views/Drinks/DrinkPage';
 import SweetPage from '../views/Sweets/SweetPage';
 import Login from '../views/Profile/Login';
 import Register from '../views/Profile/Register';
+import AboutUs from '../views/AboutUs/AboutUs';
 
 
 
@@ -42,6 +43,14 @@ const routes = [
       component: DrinkPage,
       meta:{
         title:"Drinks"
+      }
+    },
+    {
+      path: '/aboutUs',
+      name:"AboutUs",
+      component: AboutUs,
+      meta:{
+        title:"AboutUs"
       }
     },
     {
