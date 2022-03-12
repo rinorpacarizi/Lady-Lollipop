@@ -42,6 +42,7 @@ drinkRoute.route('/update-drink/:id').put((req, res, next) => {
     }
   })
 })
+
 // Delete
 drinkRoute.route('/delete-drink/:id').delete((req, res, next) => {
     DrinkModel.findByIdAndRemove(req.params.id, (error, data) => {

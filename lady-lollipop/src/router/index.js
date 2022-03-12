@@ -44,7 +44,22 @@ const routes = [
         title:"Drinks"
       }
     },
-    
+    {
+      path: '/create-drink',
+      name: 'Create-Drink',
+      component: () => import('../components/CreateComponent')
+    },
+    {
+      path: '/view-drinks',
+      name: 'view-drinks',
+      component: () => import('../components/ListComponent')
+    }
+    ,
+    {
+      path: '/edit-drink/:id',
+      name: 'edit-drink',
+      component: () => import('../components/EditComponent')
+    },
     {
       path: '/login',
       name:"Login",
