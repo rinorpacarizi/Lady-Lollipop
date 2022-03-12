@@ -1,16 +1,14 @@
-
 <template>
 <div>
-
  <div>
     <h1 class="title">Drinks</h1>
     
-    <p style="text-align: center">
+    <!-- <p style="text-align: center"> -->
       <!-- <a class="create-button" asp-action="Create">Add <font-awesome-icon icon="circle-plus" /></a> -->
       <div class="create-button" v-b-modal.modal-no-backdrop2
         ><router-link class="nav-link pr-3" to="/create-drink">Add Drink</router-link><font-awesome-icon icon="circle-plus"
       /></div>
-    </p>
+    <!-- </p> -->
     <ul class="row-div">
       <li class="main-inside-div">
         <div>
