@@ -22,7 +22,7 @@ export default {
     background-color: #FD4B4B;
     height: 84px;
     width: 100vw;
-    position:absolute;
+    position:inherit;
    bottom:0;
    width:100%;
 }

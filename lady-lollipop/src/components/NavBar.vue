@@ -6,6 +6,8 @@
         <router-link class="p-navbar" :to="{name:'Sweets'}"> Sweets</router-link
         ><router-link class="p-navbar" :to="{name:'Cakes'}">Cakes</router-link
         ><router-link class="p-navbar" :to="{name:'Drinks'}">Drinks</router-link>
+         <router-link class="p-navbar" :to="{name:'AboutUs'}">About Us</router-link>
+
       </div>
     </div>
   </div>

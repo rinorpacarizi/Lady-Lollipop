@@ -4,6 +4,8 @@ import sweets from './modules/sweets';
 import cakes from './modules/cakes';
 import drinks from './modules/drinks';
 import users from './modules/users'
+import aboutUs from './modules/aboutUs';
+
 
 Vue.use(Vuex)
 
@@ -12,6 +14,8 @@ export default new Vuex.Store({
         sweets,
         cakes,
         drinks,
-        users
+        users,
+        aboutUs
+
     }
 })
