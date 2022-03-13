@@ -1,15 +1,15 @@
 import admin from "../services/firebase";
 
-const checkIfAuthenticated =async (req, res, next) => {
-  const { authToken } = req;
+const checkIfAuthenticated = async (req, res, next) => {
   try {
-    const user = await admin.auth().verifyIdToken(authToken);
-    req.authId = user.uid;
-  } catch (err) {
-    return res.status(401).json({ message: "You aint authenticated" });
+    const { authToken } = req;
+    const userInfo = await admin.auth().verifyIdToken(authToken);
+    req.authId = userInfo.uid;
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      error,
+    });
   }
-
-  return next();
 };
-
 export default checkIfAuthenticated;

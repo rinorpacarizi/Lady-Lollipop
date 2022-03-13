@@ -1,9 +1,7 @@
 const getAuthToken = (req, res, next) => {
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.split(" ")[0] === "Bearer"
-  ) {
-    req.authToken = req.headers.authorization.split(" ")[1];
+  const authorizationHeader = req.headers.authorization;
+  if (authorizationHeader && authorizationHeader.split(" ")[0] === "Bearer") {
+    req.authToken = authorizationHeader.split(" ")[1];
   } else {
     req.authToken = null;
   }

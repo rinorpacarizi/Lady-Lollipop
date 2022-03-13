@@ -73,9 +73,6 @@ export default {
     };
   },
   computed: {
-    // user() {
-    //   return this.$store.state.users.user;
-    // },
     ...mapGetters({
       user: "user",
     }),

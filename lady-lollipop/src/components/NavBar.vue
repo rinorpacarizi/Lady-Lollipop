@@ -6,6 +6,8 @@
         <router-link class="p-navbar" :to="{name:'Sweets'}"> Sweets</router-link
         ><router-link class="p-navbar" :to="{name:'Cakes'}">Cakes</router-link
         ><router-link class="p-navbar" :to="{name:'Drinks'}">Drinks</router-link>
+         <router-link class="p-navbar" :to="{name:'AboutUs'}">About Us</router-link>
+
       </div>
     </div>
   </div>
@@ -26,7 +28,7 @@ export default {
   justify-content: space-around;
   width: 820px;
   position: relative;
-  left: 365px;
+  left: 325px;
 }
 .out-nav-div {
   background-color: #fd4b4b;
