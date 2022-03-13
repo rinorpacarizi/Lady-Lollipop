@@ -1,4 +1,5 @@
 <template>
+  <div class="bg" style="height: 650px; padding 0px; margin: 0px; display: table; background-color: rgba(249, 212, 228, 9.47);">
   <div class="quantity">
     <b-input-group>
       <b-input-group-prepend>
@@ -11,6 +12,7 @@
         <b-btn variant="info" @click="increment()">+</b-btn>
       </b-input-group-append>
     </b-input-group>
+  </div>
   </div>
 </template>
 <script>
