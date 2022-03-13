@@ -1,15 +1,14 @@
-
 <template>
 <div>
-
  <div>
     <h1 class="title">Drinks</h1>
-    <p style="text-align: center">
+    
+    <!-- <p style="text-align: center"> -->
       <!-- <a class="create-button" asp-action="Create">Add <font-awesome-icon icon="circle-plus" /></a> -->
-      <b-button class="create-button" v-b-modal.modal-no-backdrop2
-        >Add <font-awesome-icon icon="circle-plus"
-      /></b-button>
-    </p>
+      <div class="create-button" v-b-modal.modal-no-backdrop2
+        ><router-link class="nav-link pr-3" to="/create-drink">Add Drink</router-link><font-awesome-icon icon="circle-plus"
+      /></div>
+    <!-- </p> -->
     <ul class="row-div">
       <li class="main-inside-div">
         <div>
@@ -83,53 +82,53 @@
 </template>
 
  <script>
-// import axios from 'axios';
-// import AddDrinks from "./AddDrinks.vue";
-// import EditDrinks from "./EditDrinks.vue";
-// export default {
-//   name: "DrinkPage",
-//   components: {
-//     AddDrinks,
-//     Edi  tDrinks
-//   },
-//   data() {
-//       return {
-//           Drink: {}
-//       }
-//   },
-//   created() {
-//       let apiURL = 'http://localhost:4000/api/list-drink';
-//       axios.get(apiURL).then(res => {
-//           this.Drink = res.data;
-//       }).catch(error => {
-//           console.log(error)
-//       });
-//   },
-//   methods: {
-//     formatNames(files) {
-//       return files.length === 1
-//         ? files[0].name
-//         : `${files.length} files selected`;
-//     },
-//     deleteDrink(id){
-//         let apiURL = `http://localhost:4000/api/delete-student/${id}`;
-//         let indexOfArrayItem = this.Drink.findIndex(i => i._id === id);
-//         if (window.confirm("Do you really want to delete?")) {
-//             axios.delete(apiURL).then(() => {
-//                 this.Drink.splice(indexOfArrayItem, 1);
-//             }).catch(error => {
-//                 console.log(error)
-//             });
-//         }
-//     }
-//   },
-//   computed: {
-//     nameState() {
-//       return this.name.length > 2 ? true : false;
-//     },
-//   },
+import axios from 'axios';
+import AddDrinks from "./AddDrinks.vue";
+import EditDrinks from "./EditDrinks.vue";
+export default {
+  name: "DrinkPage",
+  components: {
+    AddDrinks,
+    EditDrinks
+  },
+  data() {
+      return {
+          Drink: {}
+      }
+  },
+  created() {
+      let apiURL = 'http://localhost:4000/api/list-drink';
+      axios.get(apiURL).then(res => {
+          this.Drink = res.data;
+      }).catch(error => {
+          console.log(error)
+      });
+  },
+  methods: {
+    formatNames(files) {
+      return files.length === 1
+        ? files[0].name
+        : `${files.length} files selected`;
+    },
+    deleteDrink(id){
+        let apiURL = `http://localhost:4000/api/delete-student/${id}`;
+        let indexOfArrayItem = this.Drink.findIndex(i => i._id === id);
+        if (window.confirm("Do you really want to delete?")) {
+            axios.delete(apiURL).then(() => {
+                this.Drink.splice(indexOfArrayItem, 1);
+            }).catch(error => {
+                console.log(error)
+            });
+        }
+    }
+  },
+  computed: {
+    nameState() {
+      return this.name.length > 2 ? true : false;
+    },
+  },
   
-// };
+};
  </script>
 <style scoped>
 </style>

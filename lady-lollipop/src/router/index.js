@@ -7,6 +7,7 @@ import DrinkPage from "../views/Drinks/DrinkPage";
 import SweetPage from "../views/Sweets/SweetPage";
 import Login from "../views/Profile/Login";
 import Register from "../views/Profile/Register";
+import AboutUs from "../views/AboutUs/AboutUs";
 
 Vue.use(VueRouter);
 
@@ -46,7 +47,14 @@ const routes = [
       isAuthenticated: true,
     },
   },
-
+  {
+    path: "/aboutUs",
+    name: "AboutUs",
+    component: AboutUs,
+    meta: {
+      title: "AboutUs",
+    },
+  },
   {
     path: "/login",
     name: "Login",
@@ -55,6 +63,7 @@ const routes = [
       title: "Login",
     },
   },
+
   {
     path: "/register",
     name: "Register",
