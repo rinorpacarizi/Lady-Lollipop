@@ -26,7 +26,7 @@ export default {
   justify-content: space-around;
   width: 820px;
   position: relative;
-  left: 365px;
+  left: 325px;
 }
 .out-nav-div {
   background-color: #fd4b4b;

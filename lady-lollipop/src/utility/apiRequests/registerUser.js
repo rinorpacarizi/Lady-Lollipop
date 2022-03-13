@@ -1,4 +1,4 @@
-import axiosInstance from './axiosInstance'
+import axiosInstance from '../axiosInstance'
 
 const registerUser = (firstName, lastName, username, email, password) => {
   return axiosInstance.post("users/register", {
