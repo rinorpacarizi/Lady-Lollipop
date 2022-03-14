@@ -1,6 +1,6 @@
-<template style="position:relative;">
-  <div style="height:auto;">
-    <img src="../assets/Images/2.jpg" class="background-img" style="back" />
+<template>
+  <div>
+    <img src="../assets/Images/2.jpg" class="background-img" />
     <div class="home-div">
       <div class="navbar-b">
         <button class="b1">Home</button>
@@ -22,8 +22,8 @@
         >
       </div>
     </div>
-    <footer class="layout-footer">
-      <div style="position: relative; top: 18rem">
+    <footer style="position: absolute; bottom: 12rem">
+      <div style="position: relative; top: 12rem; left: 11px">
         <p class="footer-p">Copyright© 2022| Lady Lollipop</p>
         <div class="div-footer">
           <a class="a-footer" href="#">Privacy Policy</a>
@@ -52,11 +52,11 @@ body {
 }
 .home-div {
   text-align: center;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: -55px;
-    left: 101px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -8px;
+  left: 101px;
 }
 
 .navbar-b {
@@ -75,7 +75,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
- height: 757px;
+  height: 757px;
   margin-top: -60px;
   opacity: 0.8;
 }
@@ -158,9 +158,9 @@ p {
   font-family: GrandHotel;
   text-align: center;
   font-size: 22px;
-  padding-top: 0px;
   position: relative;
-  left: 244px;
+  left: 446px;
+  width: 244px;
 }
 
 .div-footer {
