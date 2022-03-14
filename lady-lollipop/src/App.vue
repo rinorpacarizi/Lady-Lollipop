@@ -5,7 +5,7 @@
     
     <div class="Header" v-if="!navigation"><Header/></div>
      
-     <!-- <router-link to="/">Home</router-link> |
+     <!--  |
       <router-link to="/about">About</router-link> -->
       <router-view/>
     <footer class="footer" v-if="!navigation"><Footer/></footer>

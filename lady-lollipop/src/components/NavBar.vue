@@ -2,12 +2,16 @@
   <div>
     <div class="out-nav-div">
       <div class="nav-div">
-        <router-link class="p-navbar" :to="{name:'Home'}"> Home </router-link>
-        <router-link class="p-navbar" :to="{name:'Sweets'}"> Sweets</router-link
-        ><router-link class="p-navbar" :to="{name:'Cakes'}">Cakes</router-link
-        ><router-link class="p-navbar" :to="{name:'Drinks'}">Drinks</router-link>
-         <router-link class="p-navbar" :to="{name:'AboutUs'}">About Us</router-link>
-
+        <router-link class="p-navbar" :to="{ name: 'Home' }">
+          Home
+        </router-link>
+        <router-link class="p-navbar" :to="{ name: 'Sweets' }">
+          Sweets</router-link
+        ><router-link class="p-navbar" :to="{ name: 'Cakes' }"
+          >Cakes</router-link
+        ><router-link class="p-navbar" :to="{ name: 'Drinks' }"
+          >Drinks</router-link
+        >
       </div>
     </div>
   </div>
@@ -16,8 +20,7 @@
 export default {
   name: "NavBar",
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
@@ -40,9 +43,9 @@ export default {
   width: 166px;
   font-size: 35px;
   font-family: GrandHotel;
-  padding-bottom: 5px;
+  padding-top: -1px;
   position: relative;
-  bottom: 7px;
+  top: 0px;
   text-align: center;
   height: 50px;
 }
@@ -51,6 +54,6 @@ export default {
   color: #fd4b4b;
   text-decoration: none;
   background-color: white;
-  height: 39px;
+  height: 50px;
 }
 </style>

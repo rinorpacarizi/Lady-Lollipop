@@ -5,7 +5,7 @@
         <div>
           <a
             ><img
-              class="img-drink"
+              class="img"
               src="https://natashaskitchen.com/wp-content/uploads/2020/06/Strawberry-Smoothies-5.jpg"
           /></a>
         </div>
@@ -15,7 +15,7 @@
           <p class="stock-p">Stock in stock</p>
         </div>
         <div>
-          <b-button class="cart-button-enabled">Add To Cart</b-button>
+          <b-button class="cart">Add To Cart</b-button>
         </div>
         <div class="index-button-div">
           <el-button
@@ -25,9 +25,8 @@
             ><i class="el-icon-edit"></i
           ></el-button>
           <el-dialog
-            top="12vh"
+            top="13vh"
             width="43%"
-            height=""
             :visible.sync="editFormVisible"
           >
             <EditItem v-on:changeDisplay="editFormNotVisible($event)" />
@@ -126,5 +125,42 @@ export default {
 }
 .el-dialog__header {
   padding: 0 !important;
+}
+.img{
+  width: 235px;
+    height: 265px;
+    border-radius: 8px;
+}
+.name-p{
+  padding-top: 5px;
+    font-family: Galdeano;
+    font-size: 25px;
+    margin-bottom: 0px;
+    color: black;
+    width: 235px;
+    text-align: center;
+    height: 75px;
+}
+.price-p{
+  font-family: monospace;
+    font-size: 25px;
+    text-align: center;
+    color: #FD4B4B;
+    padding-top: 5px;
+}
+.stock-p{
+  font-size: 12px;
+    color: gray;
+    text-align: center;
+}
+.cart{
+  background-color: #FD4B4B !important;
+    color: #FFFFFF;
+    border-radius: 20px;
+    width: 125px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    padding-top: 8px;
 }
 </style>

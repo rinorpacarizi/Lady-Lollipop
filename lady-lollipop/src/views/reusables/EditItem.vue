@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 500px">
+  <div style="height: 485px">
     <h1 class="h1-create-edit">Edit Item</h1>
 
     <hr style="border: 1px solid #fd4b4b9e" />
@@ -81,5 +81,13 @@ export default {
   right: 141px;
   top: 22px;
   font-size: 20px;
+}
+.div-create-edit{
+  position: relative;
+    left: 9px;
+    color: #FD4B4B;
+    font-weight: 500;
+    font-family: Galdeano;
+    font-size: 20px;
 }
 </style>

@@ -64,4 +64,13 @@ export default {
     font-size: 55px;
     position: relative;
 }
+.div-create-edit{
+      position: relative;
+    left: 9px;
+    color: #FD4B4B;
+    font-weight: 500;
+    font-family: Galdeano;
+    font-size: 20px;
+}
+
 </style>

@@ -5,7 +5,9 @@
       <div class="div-footer">
         <a class="a-footer" href="#">Privacy Policy</a>
         <a class="a-footer" href="#">Terms of Use</a>
-        <a class="a-footer" href="#">About us</a>
+         <router-link  class="a-footer" :to="{ name: 'AboutUs' }"
+          >About Us</router-link
+        >
         <a class="a-footer" href="#">Contact us</a>
       </div>
     </div>

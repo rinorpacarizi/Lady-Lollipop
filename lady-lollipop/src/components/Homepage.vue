@@ -1,20 +1,7 @@
-<template>
-  <div>
-    <img
-      src="../assets/Images/2.jpg"
-      class="background-img"
-      style="back"
-    />
-    <div
-      class="button"
-      style="
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 0;
-      "
-    >
+<template style="position:relative;">
+  <div style="height:auto;">
+    <img src="../assets/Images/2.jpg" class="background-img" style="back" />
+    <div class="home-div">
       <div class="navbar-b">
         <button class="b1">Home</button>
         <router-link class="b1" to="/Sweets" tag="button">Sweets</router-link>
@@ -24,7 +11,7 @@
       </div>
 
       <div>
-        <img class="logo" src="../assets/Images/logo.jpg" />
+        <img class="logo" src="../assets/Images/home-logo.png" />
       </div>
       <br />
       <div>
@@ -36,28 +23,40 @@
       </div>
     </div>
     <footer class="layout-footer">
-    <div>
-      <p class="footer-p">Copyright© 2022| Lady Lollipop</p>
-      <div class="div-footer">
-        <a class="a-footer" href="#">Privacy Policy</a>
-        <a class="a-footer" href="#">Terms of Use</a>
-        <a class="a-footer" href="#">About us</a>
-        <a class="a-footer" href="#">Contact us</a>
+      <div style="position: relative; top: 18rem">
+        <p class="footer-p">Copyright© 2022| Lady Lollipop</p>
+        <div class="div-footer">
+          <a class="a-footer" href="#">Privacy Policy</a>
+          <a class="a-footer" href="#">Terms of Use</a>
+          <router-link class="a-footer" :to="{ name: 'AboutUs' }"
+            >About Us</router-link
+          >
+          <a class="a-footer" href="#">Contact us</a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </div>
 </template>
 <script>
 export default {
   name: "Homepage",
-  
 };
 </script>
 <style scoped>
 @font-face {
   font-family: Graduate;
   src: url(../assets/Fonts/Graduate-Regular.ttf);
+}
+body {
+  margin: 0 auto;
+}
+.home-div {
+  text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -55px;
+    left: 101px;
 }
 
 .navbar-b {
@@ -72,21 +71,18 @@ export default {
   left: 25rem;
 }
 
-body {
-  margin: 0 auto;
-}
 .background-img {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+ height: 757px;
   margin-top: -60px;
   opacity: 0.8;
-} 
+}
 p {
-  margin-top: 100px;
-  margin-right: 40rem;
-  margin-left: 15rem;
+  margin-top: -5px;
+  margin-right: 42rem;
+  margin-left: 12rem;
   font-size: 50px;
   border: 1px black;
   color: white;
@@ -103,17 +99,20 @@ p {
   font-size: 33px;
   border: none;
   color: white;
-  font-family: Galdeano,
-    sans-serif;
+  font-family: Galdeano, sans-serif;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
 }
+.b1:hover {
+  text-shadow: -1px 2px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
 .b7 {
-  background: palevioletred;
+  background: #ff83b7;
   font-size: 50px;
   border: 0;
-  border-radius: 12px;
-  margin-left: 750px;
+  border-radius: 23px;
+  margin-left: 836px;
   /* margin-bottom: 300px; */
   color: #ffffff;
   cursor: pointer;
@@ -131,48 +130,58 @@ p {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
+  position: relative;
+  bottom: 88px;
+}
+.b7:hover {
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 .logo {
   width: 152px;
   height: 135px;
   position: relative;
-  left: 6.9rem;
-  top: 51px;
+  left: 112px;
+  top: 25px;
 }
 .layout-footer {
-    background-color: transparent;
-    margin-bottom: -100px;
-    height: 0px;
-    width: 100vw;
-    position:absolute;
-   bottom: 0;
-   width: 100%;
+  background-color: transparent;
+  margin-bottom: -100px;
+  height: 0px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
-.footer-p{
-    color:white;
-    font-family:GrandHotel;
-    text-align:center;
-    font-size:22px;
-    padding-top: 0px;
-    margin-right: -1px;
-    margin-left: -1px;
+.footer-p {
+  color: white;
+  font-family: GrandHotel;
+  text-align: center;
+  font-size: 22px;
+  padding-top: 0px;
+  position: relative;
+  left: 244px;
 }
 
 .div-footer {
-    display: flex;
-    justify-content: space-around;
-    width: 600px;
-    position: relative;
-    left: 360px;
-    bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  position: relative;
+  left: 447px;
+  bottom: 10px;
 }
-.a-footer{
-    text-decoration:none;
-    color:white !important;
-    font-family:Galdeano;
-    font-size:20px;
+.a-footer {
+  text-decoration: none;
+  color: white !important;
+  font-family: Galdeano;
+  font-size: 20px;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
-.a-footer:hover{
-    text-decoration:none;
+.a-footer:hover {
+  text-decoration: none;
+  text-shadow: -1px 2px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 </style>

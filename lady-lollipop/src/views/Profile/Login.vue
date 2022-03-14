@@ -73,7 +73,7 @@ body {
   position: absolute;
   top: 28px;
   height: 133px;
-  left: 43%;
+  left: 363px;
   width: 155px;
 }
 .form {
@@ -82,7 +82,7 @@ body {
     background-color: white;
     height: 420px;
     width: 441px;
-    left: 39%;
+    left: 38%;
     display: flex;
     flex-direction: column;
 }
