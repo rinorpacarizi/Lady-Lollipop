@@ -1,20 +1,32 @@
 <template>
   <div style="height: 220px;">
-    <h1 class="h1">Delete Item</h1>
+    <h1 class="h1">Delete Sweet</h1>
 
     <p class="p">Are you sure?</p>
     <button class="cancel" @click="cancel()">No</button>
-    <button class="submit">Yes</button>
+    <button class="submit" @click="deleteSweets">Yes</button>
   </div>
 </template>
 
 <script>
+import apiRequest from "../../utility/apiRequests";
 export default {
-  name: "DeleteItem",
+  name: "DeleteSweet",
+  props: {
+    id: String,
+  },
   methods:{
     cancel(){
       this.$emit("changeDisplay", false);
-    }
+      console.log(this.id);
+    },
+     deleteSweets() {
+       apiRequest.deleteSweets(this.id);
+      this.$emit("changeDisplay", false);
+
+      const result = apiRequest.getSweetsList();
+      this.$store.dispatch("fetchSweets", result);
+    },
   }
 };
 </script>

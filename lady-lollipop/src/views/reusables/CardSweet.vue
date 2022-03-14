@@ -3,16 +3,14 @@
     <ul class="row-div">
       <li class="li-cards">
         <div>
-          <a
-            ><img
-              class="img"
-              src="https://natashaskitchen.com/wp-content/uploads/2020/06/Strawberry-Smoothies-5.jpg"
-          /></a>
+          <a><img class="img" v-if="src" :src="src" /></a>
         </div>
         <div>
-          <p class="name-p"><a>Name</a></p>
-          <p class="price-p" step="0.01">Price</p>
-          <p class="stock-p">Stock in stock</p>
+          <p class="name-p">
+            <a>{{ sweet.name }}</a>
+          </p>
+          <p class="price-p" step="0.01">{{ sweet.price }}</p>
+          <p class="stock-p">{{ sweet.stock }} in stock</p>
         </div>
         <div>
           <b-button class="cart">Add To Cart</b-button>
@@ -24,12 +22,8 @@
             @click="editFormVisible = true"
             ><i class="el-icon-edit"></i
           ></el-button>
-          <el-dialog
-            top="13vh"
-            width="43%"
-            :visible.sync="editFormVisible"
-          >
-            <EditItem v-on:changeDisplay="editFormNotVisible($event)" />
+          <el-dialog top="13vh" width="43%" :visible.sync="editFormVisible">
+            <EditSweet :sweets="sweet" v-on:changeDisplay="editFormNotVisible($event)" />
           </el-dialog>
           <el-button
             class="edit-delete-sweets"
@@ -41,7 +35,10 @@
             :visible.sync="deleteFormVisible"
             style="width: 65vw; top: 15vh; margin-left: 265px"
           >
-            <DeleteItem v-on:changeDisplay="deleteFormNotVisible($event)" />
+            <DeleteSweet
+              :id="id"
+              v-on:changeDisplay="deleteFormNotVisible($event)"
+            />
           </el-dialog>
         </div>
       </li>
@@ -50,25 +47,31 @@
 </template>
 
 <script>
-import EditItem from "./EditItem.vue";
-import DeleteItem from "./DeleteItem.vue";
+import EditSweet from "../Sweets/EditSweet.vue";
+import DeleteSweet from "../Sweets/DeleteSweet.vue";
 export default {
   components: {
-    EditItem,
-    DeleteItem,
+    EditSweet,
+    DeleteSweet,
   },
   data() {
     return {
       editFormVisible: false,
       deleteFormVisible: false,
+      id:null,
     };
   },
+  props: {
+    sweet: Object,
+  },
   computed: {
-//    src() {
-//      const filename = this.realEstate.files?.split(";")[0];
-
-//       return filename ? `http://localhost:4000/static/${filename}` : null;
-//     },
+    src() {
+      const filename = this.sweet.files?.split(";")[0];
+      return filename ? `http://localhost:3000/static/${filename}` : null;
+    },
+  },
+  mounted(){
+    this.id=this.sweet._id
   },
   methods: {
     deleteFormNotVisible(e) {
@@ -126,41 +129,41 @@ export default {
 .el-dialog__header {
   padding: 0 !important;
 }
-.img{
+.img {
   width: 235px;
-    height: 265px;
-    border-radius: 8px;
+  height: 265px;
+  border-radius: 8px;
 }
-.name-p{
+.name-p {
   padding-top: 5px;
-    font-family: Galdeano;
-    font-size: 25px;
-    margin-bottom: 0px;
-    color: black;
-    width: 235px;
-    text-align: center;
-    height: 75px;
+  font-family: Galdeano;
+  font-size: 25px;
+  margin-bottom: 0px;
+  color: black;
+  width: 235px;
+  text-align: center;
+  height: 75px;
 }
-.price-p{
+.price-p {
   font-family: monospace;
-    font-size: 25px;
-    text-align: center;
-    color: #FD4B4B;
-    padding-top: 5px;
+  font-size: 25px;
+  text-align: center;
+  color: #fd4b4b;
+  padding-top: 5px;
 }
-.stock-p{
+.stock-p {
   font-size: 12px;
-    color: gray;
-    text-align: center;
+  color: gray;
+  text-align: center;
 }
-.cart{
-  background-color: #FD4B4B !important;
-    color: #FFFFFF;
-    border-radius: 20px;
-    width: 125px;
-    height: 40px;
-    border: none;
-    text-align: center;
-    padding-top: 8px;
+.cart {
+  background-color: #fd4b4b !important;
+  color: #ffffff;
+  border-radius: 20px;
+  width: 125px;
+  height: 40px;
+  border: none;
+  text-align: center;
+  padding-top: 8px;
 }
 </style>

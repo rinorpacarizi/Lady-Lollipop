@@ -1,6 +1,6 @@
 <template>
   <div style="height: 485px">
-    <h1 class="h1-create-edit">Edit Item</h1>
+    <h1 class="h1-create-edit">Edit Sweet</h1>
 
     <hr style="border: 1px solid #fd4b4b9e" />
     <div>
@@ -8,25 +8,25 @@
         <form class="form">
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit label">Name </label>
-            <input class="input-create-edit form-control" />
+            <input class="input-create-edit form-control" v-model="form.name" />
           </div>
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit label">Price</label>
-            <input class="input-create-edit form-control" />
+            <input class="input-create-edit form-control" v-model="form.price"/>
           </div>
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit label">Stock</label>
-            <input class="input-create-edit form-control" />
+            <input class="input-create-edit form-control" v-model="form.stock"/>
           </div>
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit label"
               >Description</label
             >
-            <textarea class="input-create-edit form-control"></textarea>
+            <textarea class="input-create-edit form-control" v-model="form.description"></textarea>
           </div>
           <div>
             <button class="cancel" @click="cancel()">Cancel</button>
-            <button type="submit" class="submit">Submit</button>
+            <button type="submit" class="submit" @click="editSweet">Submit</button>
           </div>
         </form>
       </div>
@@ -35,11 +35,38 @@
 </template>
 
 <script>
+import apiRequest from "../../utility/apiRequests";
 export default {
-  name: "EditItem",
+  name: "EditSweet",
+  props:{
+    sweets:Object,
+  },
+  data() {
+    return {
+      form: {
+        name: this.sweets.name,
+        price: this.sweets.price,
+        stock: this.sweets.stock,
+        description: this.sweets.description,
+      },
+      sweet: null,
+    };
+  },
+  created() {
+    this.fetchSweet();
+  },
   methods: {
+    async fetchSweet() {
+      this.sweet = await apiRequest.getSweets(this.$route.params.id);
+      console.log("sweet",this.sweets);
+    },
     cancel() {
       this.$emit("changeDisplay", false);
+    },
+    async editSweet() {
+    await apiRequest.editSweets({ ...this.form }).then(()=>{
+       this.$emit("changeDisplay", false);
+    })
     },
   },
 };
@@ -56,15 +83,15 @@ export default {
 }
 .submit {
   position: relative;
-    width: 102px;
-    height: 43px;
-    font-size: 20px;
-    border-radius: 6px;
-    background-color: lightseagreen;
-    color: white;
-    border: none;
-    top: 22px;
-    left: 161px;
+  width: 102px;
+  height: 43px;
+  font-size: 20px;
+  border-radius: 6px;
+  background-color: lightseagreen;
+  color: white;
+  border: none;
+  top: 22px;
+  left: 161px;
 }
 .label {
   float: left;
@@ -82,12 +109,12 @@ export default {
   top: 22px;
   font-size: 20px;
 }
-.div-create-edit{
+.div-create-edit {
   position: relative;
-    left: 9px;
-    color: #FD4B4B;
-    font-weight: 500;
-    font-family: Galdeano;
-    font-size: 20px;
+  left: 9px;
+  color: #fd4b4b;
+  font-weight: 500;
+  font-family: Galdeano;
+  font-size: 20px;
 }
 </style>

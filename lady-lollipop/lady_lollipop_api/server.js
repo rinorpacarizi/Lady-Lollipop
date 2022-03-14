@@ -1,11 +1,12 @@
 import express from "express";
+import cors from "cors";
 import helmet from "helmet";
+import mongoose from "mongoose";
 import getAuthToken from "./api/middlewares/getAuthToken";
 import userRouter from "./api/routes/userRoute";
-import cors from "cors";
 import sweetsRoute from "./api/routes/sweetsRoute";
-import mongoose from "mongoose";
 import fileupload from "express-fileupload";
+
 
 mongoose.connect("mongodb://localhost:27017/lady-lollipop-db").then(() => {
   console.log("connected to mongodb on port 27017");
@@ -13,7 +14,7 @@ mongoose.connect("mongodb://localhost:27017/lady-lollipop-db").then(() => {
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.use(
   cors({

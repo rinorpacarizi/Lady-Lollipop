@@ -1,7 +1,7 @@
-import axiosInstance from '../axiosInstance'
+import apiRequest from "../apiRequests/apiCaller";
 
 const registerUser = (firstName, lastName, username, email, password) => {
-  return axiosInstance.post("users/register", {
+  return apiRequest.post("users/register", {
     firstName,
     lastName,
     username,
