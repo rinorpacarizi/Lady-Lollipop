@@ -1,30 +1,30 @@
-import updateDrinkSchema from "../../validatiors/updateDrinkSchema";
-import Drinks from "../models/Drinks";
+import updateCakesSchema from "../../validatiors/updateCakesSchema";
+import Cakes from "../models/Cakes";
 import FileService from "../services/FIleService";
 
-const drinkController = {
+const cakesController = {
   list: async (req, res) => {
-    const list = await Drinks.find();
+    const list = await Cakes.find();
     return res.json(list);
   },
   get: async (req, res) => {
     const { id } = req.query;
-    const foundItem = await Drinks.find({ _id: id });
+    const foundItem = await Cakes.find({ _id: id });
 
     return res.json(foundItem);
   },
   post: async (req, res) => {
-    const drinksData = req.body;
+    const cakesData = req.body;
 
-    const newDrinks = new Drinks(drinksData);
-    await newDrinks.save();
-    return res.json(newDrinks);
+    const newCakes = new Cakes(cakesData);
+    await newCakes.save();
+    return res.json(newCakes);
   },
   delete: async (req, res) => {
     const { id } = req.params;
 
     try {
-      await Drinks.deleteOne({
+      await Cakes.deleteOne({
         _id: id,
         // userId: req.authId
       });
@@ -32,49 +32,49 @@ const drinkController = {
     } catch (err) {}
   },
   put: async (req, res) => {
-    const drinks = req.body;
-    const validationResult = updatedDrinksSchema.validate(drinks);
+    const cakes = req.body;
+    const validationResult = updatedCakesSchema.validate(cakes);
 
     if (validationResult.error) {
       return res.status(400).json({ error, message: "Failed to update" });
     }
 
     try {
-      await Drinks.updateOne({ _id: updateProps.id }, updateProps);
+      await Cakes.updateOne({ _id: updateProps.id }, updateProps);
 
-      const updatedDrink = Drinks.findOne({ _id: updateProps.id });
+      const updatedCake = Cakes.findOne({ _id: updateProps.id });
 
-      return res.json(updatedDrink);
+      return res.json(updatedCake);
     } catch (err) {
       return res.status(500).json({ error: err });
     }
   },
   deleteFile: async (req, res) => {
-    const { drinkId, filename } = req.params;
+    const { cakeId, filename } = req.params;
 
     FileService.deleteFiles([filename]);
 
-    const drinksData = await Drinks.findOne({ _id: drinkId }, { files: 1 });
+    const cakesData = await Cakes.findOne({ _id: cakeId }, { files: 1 });
 
-    const updatedFilenames = drinksData.files
+    const updatedFilenames = cakesData.files
       .replace(`${filename};`, "")
       .replace(filename, "");
 
-    await drinksData.updateOne(
-      { _id: drinkId },
+    await cakesData.updateOne(
+      { _id: cakeId },
       {
         files: updatedFilenames,
       }
     );
 
-    const updatedDrinks = await Drinks.findOne(
-      { _id: drinkId },
+    const updatedCakes = await Cakes.findOne(
+      { _id: cakeId },
       {
         files: updatedFilenames,
       }
     );
 
-    return res.json(updatedDrinks);
+    return res.json(updatedCakes);
   },
   uploadFile: async (req, res) => {
     const { id } = req.params;
@@ -86,23 +86,23 @@ const drinkController = {
 
       console.log("files - ", files);
 
-      const drinks = await Drinks.find({ _id: id }, { files: 1 });
-      const oldFiles = drinks.files;
+      const cakes = await Cakes.find({ _id: id }, { files: 1 });
+      const oldFiles = cakes.files;
 
       const newFiles = `${oldFiles || ""}${oldFiles ? ";" : ""}${files}`;
 
-      await Drinks.updateOne({ _id: id }, [
+      await Cakes.updateOne({ _id: id }, [
         {
           $set: { files: newFiles },
         },
       ]);
 
-      const updatedDrinks = await Drinks.find({ _id: id });
-      return res.json(updatedDrinks);
+      const updatedCakes = await Cakes.find({ _id: id });
+      return res.json(updatedCakes);
     } catch (err) {
       res.status(500).json({ err: err.toString() });
     }
   },
 };
 
-export default drinkController;
+export default cakesController;

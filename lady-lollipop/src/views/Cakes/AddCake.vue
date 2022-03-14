@@ -5,23 +5,36 @@
     <hr style="border: 1px solid #fd4b4b9e" />
     <div>
       <div>
-        <form class="form">
-          <div class="text-danger"></div>
+        <form class="form" @submit.prevent="createCake">
+          <DropzoneCakes
+            :cakeId="this.$route.params.id"
+            :initialFiles="cake.files"
+          />
+
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit">Name</label>
-            <input class="input-create-edit form-control" />
+            <input class="input-create-edit form-control" v-model="form.name" />
           </div>
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit">Price</label>
-            <input class="input-create-edit form-control" />
+            <input
+              class="input-create-edit form-control"
+              v-model="form.price"
+            />
           </div>
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit">Stock</label>
-            <input class="input-create-edit form-control" />
+            <input
+              class="input-create-edit form-control"
+              v-model="form.stock"
+            />
           </div>
           <div class="form-group div-create-edit">
             <label class="control-label label-create-edit">Description</label>
-            <textarea class="input-create-edit form-control"></textarea>
+            <textarea
+              class="input-create-edit form-control"
+              v-model="form.description"
+            ></textarea>
           </div>
           <div
             class="form-group"
@@ -41,13 +54,40 @@
 </template>
 
 <script>
+import apiRequest from "../../utility/apiRequests";
+import DropzoneCakes from "@/components/Dropzones/DropzoneCakes.vue";
 export default {
-  name:"AddCake",
-   methods:{
-    cancel(){
+  name: "AddCakes",
+  components: {
+    DropzoneCakes,
+  },
+  data() {
+    return {
+      form: {
+        name: "",
+        price: 0,
+        stock: 0,
+        description: "",
+      },
+      cake: null,
+    };
+  },
+  created() {
+    this.fetchCake();
+  },
+  methods: {
+    async fetchCake() {
+      this.sweet = await apiRequest.getCakes(this.$route.params.id);
+    },
+    cancel() {
       this.$emit("changeDisplay", false);
-    }
-  }
+    },
+    async createCake() {
+      await apiRequest.createCakes({ ...this.form }).then(() => {
+        this.$emit("changeDisplay", false);
+      });
+    },
+  },
 };
 </script>
 
@@ -57,12 +97,20 @@ export default {
   left: 60px;
   width: 500px;
 }
-.h1-add{
-  color: #FD4B4B;
-    text-align: center;
-    font-family: GrandHotel;
-    font-size: 55px;
-    position: relative;
+.h1-add {
+  color: #fd4b4b;
+  text-align: center;
+  font-family: GrandHotel;
+  font-size: 55px;
+  position: relative;
+}
+.div-create-edit {
+  position: relative;
+  left: 9px;
+  color: #fd4b4b;
+  font-weight: 500;
+  font-family: Galdeano;
+  font-size: 20px;
 }
 .div-create-edit{
       position: relative;

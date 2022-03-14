@@ -12,6 +12,12 @@ import deleteDrinks from "./drinks/deleteDrinks";
 import createDrinks from "./drinks/createDrinks";
 import removeFileDrinks from "./drinks/removeFile";
 import editDrinks from "./drinks/editDrinks";
+import getCakesList from "./cakes/getCakesList";
+import getCakes from "./cakes/getCakes";
+import deleteCakes from "./cakes/deleteCakes";
+import createCakes from "./cakes/createCakes";
+import removeFileCakes from "./cakes/removeFile";
+import editCakes from "./cakes/editCakes";
 
 export default {
   registerUser,
@@ -28,4 +34,10 @@ export default {
   removeFileDrinks,
   deleteDrinks,
   editDrinks,
+  getCakesList,
+  getCakes,
+  createCakes,
+  removeFileCakes,
+  deleteCakes,
+  editCakes,
 };

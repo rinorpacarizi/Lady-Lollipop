@@ -7,10 +7,10 @@
         </div>
         <div>
           <p class="name-p">
-            <a>{{ sweet.name }}</a>
+            <a>{{ cake.name }}</a>
           </p>
-          <p class="price-p" step="0.01">{{ sweet.price }}</p>
-          <p class="stock-p">{{ sweet.stock }} in stock</p>
+          <p class="price-p" step="0.01">{{ cake.price }}</p>
+          <p class="stock-p">{{ cake.stock }} in stock</p>
         </div>
         <div>
           <b-button class="cart">Add To Cart</b-button>
@@ -23,7 +23,7 @@
             ><i class="el-icon-edit"></i
           ></el-button>
           <el-dialog top="13vh" width="43%" :visible.sync="editFormVisible">
-            <EditSweet :sweets="sweet" v-on:changeDisplay="editFormNotVisible($event)" />
+            <EditCakes :cakes="cake" v-on:changeDisplay="editFormNotVisible($event)" />
           </el-dialog>
           <el-button
             class="edit-delete-sweets"
@@ -35,7 +35,7 @@
             :visible.sync="deleteFormVisible"
             style="width: 65vw; top: 15vh; margin-left: 265px"
           >
-            <DeleteSweet
+            <DeleteCakes
               :id="id"
               v-on:changeDisplay="deleteFormNotVisible($event)"
             />
@@ -47,12 +47,12 @@
 </template>
 
 <script>
-import EditSweet from "../Sweets/EditSweet.vue";
-import DeleteSweet from "../Sweets/DeleteSweet.vue";
+import EditCakes from "../Cakes/EditCakes.vue";
+import DeleteCakes from "../Cakes/DeleteCakes.vue";
 export default {
   components: {
-    EditSweet,
-    DeleteSweet,
+    EditCakes,
+    DeleteCakes,
   },
   data() {
     return {
@@ -62,16 +62,16 @@ export default {
     };
   },
   props: {
-    sweet: Object,
+    cake: Object,
   },
   computed: {
     src() {
-      const filename = this.sweet.files?.split(";")[0];
+      const filename = this.cake.files?.split(";")[0];
       return filename ? `http://localhost:3000/static/${filename}` : null;
     },
   },
   mounted(){
-    this.id=this.sweet._id
+    this.id=this.cake._id
   },
   methods: {
     deleteFormNotVisible(e) {

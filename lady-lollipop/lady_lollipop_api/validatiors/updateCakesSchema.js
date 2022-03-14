@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const updatedDrinksSchema = Joi.object({
+const updatedCakesSchema = Joi.object({
   _id: Joi.string().required(),
   name: Joi.string(),
   price: Joi.number(),
@@ -8,4 +8,4 @@ const updatedDrinksSchema = Joi.object({
   description:Joi.string().min(5).max(100)
 });
 
-export default updatedDrinksSchema;
+export default updatedCakesSchema;
