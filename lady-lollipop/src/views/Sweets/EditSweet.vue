@@ -75,6 +75,11 @@ export default {
 <style>
 .el-dialog__body {
   padding: 0px 12px !important;
+  color: #FD4B4B;
+    text-align: center;
+    font-family: GrandHotel;
+    font-size: 55px;
+    position: relative;
 }
 .form {
   position: relative;
@@ -82,32 +87,57 @@ export default {
   width: 500px;
 }
 .submit {
-  position: relative;
-  width: 102px;
-  height: 43px;
-  font-size: 20px;
-  border-radius: 6px;
-  background-color: lightseagreen;
+  background-color: rgb(221, 27, 27);
+  border: 1px solid rgb(221, 27, 27);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
   color: white;
-  border: none;
-  top: 22px;
-  left: 161px;
+  cursor: pointer;
+  font-family: Galdeano;
+  font-size: 20px;
+  width: 95px;
+  height: 36px;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
+  /* position: relative;
+    width: 102px;
+    height: 43px;
+    font-size: 20px;
+    border-radius: 6px;
+    background-color: lightseagreen;
+    color: white;
+    border: none;*/
+    top: 22px;
+    left: 161px; 
+}
+.submit:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
 }
 .label {
   float: left;
 }
 .cancel {
-  color: white;
-  background: red;
-  border: none;
-  position: relative;
-  width: 99px;
-  height: 41px;
+  width: 95px;
+  height: 36px;
+  background-color: rgb(0, 155, 245);
+  border: 1px solid rgb(0, 155, 245);
   border-radius: 6px;
-  text-align: center;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Galdeano;
+  position: relative;
   right: 141px;
-  top: 22px;
   font-size: 20px;
+  top: 22px;
+}
+.cancel:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
 }
 .div-create-edit {
   position: relative;

@@ -52,24 +52,41 @@ export default {
 .cancel {
   width: 95px;
   height: 36px;
+  background-color: rgb(0, 155, 245);
+  border: 1px solid rgb(0, 155, 245);
   border-radius: 6px;
-  background-color: lightseagreen;
-  color: white;
-  border: none;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Galdeano;
   position: relative;
   right: 45px;
   font-size: 22px;
-  top: 22px;
+  top: 22px; 
+}
+.cancel:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
 }
 .submit {
-  color: white;
-  background: red;
-  border: none;
+  background-color: rgb(221, 27, 27);
+  border: 1px solid rgb(221, 27, 27);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Galdeano;
   width: 95px;
   height: 36px;
   border-radius: 6px;
   text-align: center;
   position: relative;
   left: 50px;
+}
+.submit:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
 }
 </style>
