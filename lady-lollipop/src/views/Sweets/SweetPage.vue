@@ -1,10 +1,10 @@
 <template>
   <div class="card-div">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <CardSweet />
+    <CardSweet />
+    <CardSweet />
+    <CardSweet />
+    <CardSweet />
 
     <el-button
       type="text"
@@ -18,12 +18,12 @@
   </div>
 </template>
 <script>
-import Card from "../reusables/Card.vue";
+import CardSweet from "../reusables/CardSweet.vue";
 import AddSweets from "./AddSweets.vue";
 export default {
   name: "SweetPage",
   components: {
-    Card,
+    CardSweet,
     AddSweets,
   },
   data(){

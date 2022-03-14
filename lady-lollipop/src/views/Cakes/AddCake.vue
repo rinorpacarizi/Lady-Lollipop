@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name:"AddSweets",
+  name:"AddCake",
    methods:{
     cancel(){
       this.$emit("changeDisplay", false);
@@ -63,14 +63,6 @@ export default {
     font-family: GrandHotel;
     font-size: 55px;
     position: relative;
-}
-.div-create-edit{
-      position: relative;
-    left: 9px;
-    color: #FD4B4B;
-    font-weight: 500;
-    font-family: Galdeano;
-    font-size: 20px;
 }
 .div-create-edit{
       position: relative;
