@@ -5,8 +5,8 @@ import mongoose from "mongoose";
 import getAuthToken from "./api/middlewares/getAuthToken";
 import userRouter from "./api/routes/userRoute";
 import sweetsRoute from "./api/routes/sweetsRoute";
+import drinksRoute from "./api/routes/drinksRoute";
 import fileupload from "express-fileupload";
-
 
 mongoose.connect("mongodb://localhost:27017/lady-lollipop-db").then(() => {
   console.log("connected to mongodb on port 27017");
@@ -41,6 +41,8 @@ app.use(getAuthToken);
 app.use("/users", userRouter);
 
 app.use("/sweets", sweetsRoute);
+
+app.use("/drinks", drinksRoute);
 
 app.listen(port, () => {
   console.log(`Lady Lollipop listening on: ${port}`);
